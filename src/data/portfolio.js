@@ -72,7 +72,7 @@ export const experience = [
         period: 'September 2024 — February 2025',
         role: 'Web Developer & UI/UX Designer',
         company: 'Toyota Albay',
-        desc: 'Led design and development of a Leads Tracking to Vehicle Releasing System covering the full sales pipeline — inventory, leads, reservation, earmarking, and releasing. Designed the UI/UX, contributed to the database architecture, and developed the frontend plus select backend functionality as part of a 4-person team, including sales performance dashboards, monthly and quarterly summaries, and per-agent tracking with Laravel, Bootstrap, and ApexCharts. Replacing manual, spreadsheet-based tracking reduced duplicate-customer handling, improved reporting speed, and sped up releasing turnaround. Served as a key point of contact with Toyota executives and maintained the system on the internal network.',
+        desc: 'Led design and development of a Toyota Albay CRM System covering the full sales pipeline — inventory, leads, reservation, earmarking, and releasing. Designed the UI/UX, contributed to the database architecture, and developed the frontend plus select backend functionality as part of a 4-person team, including sales performance dashboards, monthly and quarterly summaries, and per-agent tracking with Laravel, Bootstrap, and ApexCharts. Replacing manual, spreadsheet-based tracking reduced duplicate-customer handling, improved reporting speed, and sped up releasing turnaround. Served as a key point of contact with Toyota executives and maintained the system on the internal network.',
     },
     {
         period: 'July 2024 — February 2025',
@@ -117,7 +117,7 @@ export const projects = [
         featuredTags: ['Laravel', 'PHP', 'MySQL'],
     },
     {
-        title: 'Leads Tracking to Vehicle Releasing System',
+        title: 'Toyota Albay CRM System',
         shortTitle: 'Leads to Vehicle Releasing System',
         company: 'Toyota Albay',
         period: 'September 2024 — February 2025',
