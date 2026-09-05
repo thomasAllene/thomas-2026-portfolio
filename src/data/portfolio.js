@@ -60,7 +60,7 @@ export const experience = [
         period: '2025 — Present',
         role: 'Full Stack Developer & UI/UX Designer',
         company: 'XS Enterprise',
-        desc: 'Solo-developed public-facing pages and core modules for the MySymphony platform end-to-end using Laravel. Built the Bookaroo lease form for storage-facility customers with automatic price calculation, and a document management feature that auto-generates lease contracts with integrated e-signature — including a handwritten signature that reflects on both the internal document and the contract sent to the customer. Also built an interactive 2D sitemap tool for designing custom site layouts with shapes, trees, and labels, paired with a public booking experience showing real-time availability tied to dates and pricing.',
+        desc: 'Solo-developed public-facing pages and core modules for the Bookaroo platform end-to-end using Laravel. Built the Bookaroo lease form for storage-facility customers with automatic price calculation, and a document management feature that auto-generates lease contracts with integrated e-signature — including a handwritten signature that reflects on both the internal document and the contract sent to the customer. Also built an interactive 2D sitemap tool for designing custom site layouts with shapes, trees, and labels, paired with a public booking experience showing real-time availability tied to dates and pricing.',
     },
     {
         period: 'March — April 2026',
@@ -98,15 +98,15 @@ export const education = {
  */
 export const projects = [
     {
-        title: 'MySymphony Platform',
-        shortTitle: 'MySymphony Platform',
+        title: 'Bookaroo Platform',
+        shortTitle: 'Bookaroo Platform',
         company: 'XS Enterprise',
         period: '2025 — Present',
         icon: 'bx bx-buildings',
         featured: true,
         summary:
             'Public-facing pages and core modules solo-developed with Laravel — a lease form with automatic price calculation, auto-generated contracts with handwritten e-signature, and an interactive 2D sitemap builder with real-time booking availability.',
-        desc: 'Public-facing pages and core modules for the MySymphony platform, solo-developed end-to-end with Laravel.',
+        desc: 'Public-facing pages and core modules for the Bookaroo platform, solo-developed end-to-end with Laravel.',
         highlights: [
             'Bookaroo lease form for customers leasing storage facilities, with automatic price calculation.',
             'Document management that auto-generates lease contracts with integrated e-signature — including a handwritten signature that reflects on both the internal document and the contract sent to the customer.',
