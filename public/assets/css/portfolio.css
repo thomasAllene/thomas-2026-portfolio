@@ -1,0 +1,609 @@
+/**
+ * Portfolio — dark glassmorphism theme
+ * Layered on top of the Sneat dark core (Bootstrap 5).
+ */
+
+/* ------------------------------- Design tokens ------------------------------ */
+
+:root {
+    /* Surfaces */
+    --bg-base: #05070c;
+    --bg-deep: #04050a;
+
+    /* Glass */
+    --glass-bg: rgba(255, 255, 255, 0.045);
+    --glass-bg-hover: rgba(255, 255, 255, 0.07);
+    --glass-border: rgba(255, 255, 255, 0.09);
+    --glass-border-hover: rgba(255, 255, 255, 0.2);
+    --glass-blur: blur(22px) saturate(150%);
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    --glass-shadow-hover: 0 20px 48px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+
+    /* Type */
+    --text-strong: #f2f4f9;
+    --text-body: #b9bfd0;
+    --text-muted: #7d8496;
+
+    /* Accents */
+    --accent: #3b82f6;
+    --accent-soft: #93c5fd;
+    --accent-2: #7dd3fc;
+    --accent-glow: rgba(59, 130, 246, 0.35);
+
+    --radius: 1.125rem;
+}
+
+/* --------------------------------- Base bg --------------------------------- */
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    background-color: var(--bg-base);
+    /* AOS parks `fade-left` elements 100px off-screen before they animate in.
+       `clip` contains that without creating a scroll container, so the sticky
+       navbar keeps working (plain `hidden` on <html> can break sticky). */
+    overflow-x: hidden;
+    overflow-x: clip;
+}
+
+/* The base colour lives on <html> so the ambient layer below can paint over it.
+   body must stay transparent — a block background would cover a z-index:-1 child. */
+body {
+    position: relative;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background-color: transparent !important;
+    color: var(--text-body);
+    overflow-x: hidden;
+    overflow-x: clip;
+}
+
+/* Ambient aurora light sources */
+.bg-ambient {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+        radial-gradient(58rem 42rem at 8% -6%, rgba(59, 130, 246, 0.5), transparent 62%),
+        radial-gradient(46rem 36rem at 92% 8%, rgba(125, 211, 252, 0.34), transparent 64%),
+        radial-gradient(52rem 40rem at 80% 64%, rgba(56, 189, 248, 0.28), transparent 64%),
+        radial-gradient(38rem 32rem at 14% 84%, rgba(99, 132, 190, 0.24), transparent 62%);
+}
+
+/* Fine grain, keeps the large gradients from banding */
+.bg-ambient::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Nothing between the ambient layer and the content should be opaque */
+main {
+    background: transparent !important;
+}
+
+/* Never let a wide child force a horizontal scrollbar */
+img,
+svg {
+    max-width: 100%;
+    height: auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-strong);
+}
+
+.text-muted {
+    color: var(--text-muted) !important;
+}
+
+.text-primary {
+    color: var(--accent-soft) !important;
+}
+
+/* ------------------------------- Glass surface ------------------------------ */
+
+.glass {
+    background: var(--glass-bg);
+    -webkit-backdrop-filter: var(--glass-blur);
+    backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius);
+    box-shadow: var(--glass-shadow);
+}
+
+/* Neutralise Sneat's opaque card so the glass shows through */
+.card.glass-card {
+    background: var(--glass-bg) !important;
+    -webkit-backdrop-filter: var(--glass-blur);
+    backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border) !important;
+    border-radius: var(--radius);
+    box-shadow: var(--glass-shadow);
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                border-color 0.35s ease,
+                background 0.35s ease,
+                box-shadow 0.35s ease;
+}
+
+.card.glass-card:hover {
+    transform: translateY(-6px);
+    background: var(--glass-bg-hover) !important;
+    border-color: var(--glass-border-hover) !important;
+    box-shadow: var(--glass-shadow-hover);
+}
+
+/* Specular highlight along the top edge */
+.glass-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.glass-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+}
+
+/* ---------------------------------- Chips ---------------------------------- */
+
+.chip {
+    display: inline-block;
+    padding: 0.3rem 0.85rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--accent-soft);
+    background: rgba(59, 130, 246, 0.12);
+    border: 1px solid rgba(59, 130, 246, 0.28);
+    border-radius: 999px;
+}
+
+.chip-muted {
+    color: var(--text-body);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+.chip-live::before {
+    content: '';
+    display: inline-block;
+    width: 0.45rem;
+    height: 0.45rem;
+    margin-inline-end: 0.5rem;
+    border-radius: 50%;
+    background: #34d399;
+    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.6);
+    animation: pulse-dot 2.2s infinite;
+}
+
+@keyframes pulse-dot {
+    70% { box-shadow: 0 0 0 0.5rem rgba(52, 211, 153, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0); }
+}
+
+/* --------------------------------- Buttons --------------------------------- */
+
+.btn.btn-primary {
+    background: linear-gradient(135deg, var(--accent) 0%, #2563eb 100%);
+    border: 0;
+    color: #fff;
+    box-shadow: 0 8px 24px -6px var(--accent-glow);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+}
+
+.btn.btn-primary:hover,
+.btn.btn-primary:focus {
+    transform: translateY(-2px);
+    filter: brightness(1.08);
+    box-shadow: 0 14px 34px -6px var(--accent-glow);
+}
+
+.btn.btn-glass {
+    background: var(--glass-bg);
+    -webkit-backdrop-filter: var(--glass-blur);
+    backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    color: var(--text-strong);
+    transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+}
+
+.btn.btn-glass:hover,
+.btn.btn-glass:focus {
+    transform: translateY(-2px);
+    background: var(--glass-bg-hover);
+    border-color: var(--glass-border-hover);
+    color: #fff;
+}
+
+.btn-link {
+    color: var(--accent-soft);
+    text-decoration: none;
+}
+
+.btn-link:hover {
+    color: #fff;
+}
+
+/* ---------------------------------- Navbar --------------------------------- */
+
+nav.site-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.navbar.landing-navbar {
+    margin-top: 0.85rem;
+    padding-block: 0.5rem !important;
+    background: rgba(8, 12, 20, 0.55) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    backdrop-filter: blur(20px) saturate(160%);
+    border: 1px solid var(--glass-border);
+    border-radius: 999px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+.navbar.landing-navbar .brand-mark {
+    color: var(--text-strong);
+    letter-spacing: -0.04em;
+}
+
+.navbar.landing-navbar .navbar-nav .nav-link {
+    color: var(--text-muted) !important;
+    font-size: 0.9375rem;
+    transition: color 0.2s ease;
+}
+
+.navbar.landing-navbar .navbar-nav .nav-link:hover {
+    color: var(--text-strong) !important;
+}
+
+.navbar.landing-navbar .navbar-toggler {
+    color: var(--text-strong);
+}
+
+@media (max-width: 991.98px) {
+    .navbar.landing-navbar .landing-nav-menu {
+        background: rgba(8, 12, 20, 0.92) !important;
+        -webkit-backdrop-filter: blur(20px);
+        backdrop-filter: blur(20px);
+    }
+}
+
+/* ----------------------------------- Hero ---------------------------------- */
+
+.hero-section {
+    padding-top: 9.5rem;
+}
+
+.hero-title {
+    font-size: clamp(2.25rem, 5.2vw, 3.75rem);
+    line-height: 1.1;
+    letter-spacing: -0.035em;
+    color: var(--text-strong);
+}
+
+.hero-title .gradient-text {
+    background: linear-gradient(100deg, #bfdbfe 0%, #3b82f6 45%, #7dd3fc 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+.hero-subtitle {
+    font-size: 1.0625rem;
+    line-height: 1.8;
+    max-width: 34rem;
+    color: var(--text-body);
+}
+
+.hero-stats h3 {
+    font-size: 1.875rem;
+    background: linear-gradient(135deg, #fff 0%, var(--accent-soft) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-stats .vr {
+    background-color: rgba(255, 255, 255, 0.12);
+    opacity: 1;
+}
+
+/* Glass orb holding the hero glyph */
+.hero-orb {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin-inline: auto;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(145deg, rgba(59, 130, 246, 0.42), rgba(125, 211, 252, 0.16));
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+    backdrop-filter: blur(18px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow:
+        0 24px 80px -10px rgba(59, 130, 246, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.28);
+    animation: float 7s ease-in-out infinite;
+}
+
+.hero-orb::after {
+    content: '';
+    position: absolute;
+    inset: 12%;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.hero-orb i {
+    font-size: 7.5rem;
+    color: #fff;
+    text-shadow: 0 0 40px rgba(59, 130, 246, 0.8);
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-16px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-orb { animation: none; }
+}
+
+@media (max-width: 991.98px) {
+    .hero-orb {
+        width: 220px;
+        height: 220px;
+    }
+
+    .hero-orb i {
+        font-size: 5.5rem;
+    }
+}
+
+/* --------------------------------- Sections -------------------------------- */
+
+.section-py {
+    padding-block: 6rem;
+}
+
+.section-title {
+    font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+    letter-spacing: -0.025em;
+}
+
+.section-subtitle {
+    max-width: 34rem;
+    color: var(--text-muted);
+}
+
+/* Hairline divider between sections */
+.section-divided {
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ---------------------------------- About ---------------------------------- */
+
+.about-list li {
+    color: var(--text-body);
+}
+
+.about-list li strong {
+    color: var(--text-strong);
+}
+
+.about-list i {
+    font-size: 1.125rem;
+    color: var(--accent-soft);
+}
+
+/* ------------------------------ Icon treatment ----------------------------- */
+
+.icon-tile {
+    width: 58px;
+    height: 58px;
+    margin-inline: auto;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(145deg, rgba(59, 130, 246, 0.22), rgba(59, 130, 246, 0.06));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14);
+}
+
+.icon-tile i {
+    font-size: 1.6rem;
+    color: var(--accent-soft);
+}
+
+.icon-tile-round {
+    border-radius: 50%;
+}
+
+.skill-card ul li {
+    color: var(--text-muted);
+    font-size: 0.9375rem;
+}
+
+/* --------------------------------- Projects -------------------------------- */
+
+.project-thumb {
+    height: 165px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:
+        radial-gradient(circle at 30% 20%, rgba(59, 130, 246, 0.35), transparent 60%),
+        radial-gradient(circle at 75% 80%, rgba(125, 211, 252, 0.22), transparent 60%),
+        rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.project-thumb i {
+    font-size: 3.25rem;
+    color: #fff;
+    opacity: 0.9;
+    text-shadow: 0 0 30px rgba(59, 130, 246, 0.7);
+}
+
+.project-card .card-body p {
+    color: var(--text-muted);
+}
+
+/* -------------------------------- Experience ------------------------------- */
+
+.timeline {
+    position: relative;
+    padding-inline-start: 2.25rem;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    inset-inline-start: 0.4375rem;
+    top: 0.75rem;
+    bottom: 0.75rem;
+    width: 1px;
+    background: linear-gradient(180deg,
+        transparent,
+        rgba(59, 130, 246, 0.5) 12%,
+        rgba(59, 130, 246, 0.5) 88%,
+        transparent);
+}
+
+.timeline-item {
+    position: relative;
+    padding-bottom: 1.5rem;
+}
+
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+.timeline-marker {
+    position: absolute;
+    inset-inline-start: -2.25rem;
+    top: 1.75rem;
+    width: 0.9rem;
+    height: 0.9rem;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid var(--bg-base);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.22), 0 0 18px var(--accent-glow);
+}
+
+.timeline-content .card-body p:last-child {
+    color: var(--text-muted);
+}
+
+/* --------------------------------- Contact --------------------------------- */
+
+.contact-card p {
+    color: var(--text-muted);
+    word-break: break-word;
+}
+
+.contact-cta {
+    background:
+        radial-gradient(40rem 20rem at 50% 0%, rgba(59, 130, 246, 0.18), transparent 70%),
+        var(--glass-bg);
+    -webkit-backdrop-filter: var(--glass-blur);
+    backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    border-radius: 1.75rem;
+    box-shadow: var(--glass-shadow);
+}
+
+/* ---------------------------------- Footer --------------------------------- */
+
+.landing-footer {
+    background: transparent !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.landing-footer .footer-top {
+    background: rgba(255, 255, 255, 0.02);
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+    padding-bottom: 2.5rem;
+}
+
+.landing-footer .footer-title {
+    color: var(--text-strong);
+    font-size: 0.8125rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.landing-footer .footer-text {
+    color: var(--text-muted);
+}
+
+.landing-footer .footer-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.landing-footer .footer-link:hover {
+    color: var(--text-strong);
+}
+
+.landing-footer .btn-social {
+    background: var(--glass-bg);
+    -webkit-backdrop-filter: var(--glass-blur);
+    backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    color: var(--text-body);
+    transition: all 0.25s ease;
+}
+
+.landing-footer .btn-social:hover {
+    background: rgba(59, 130, 246, 0.2);
+    border-color: rgba(59, 130, 246, 0.5);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.landing-footer .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* -------------------------------- Utilities -------------------------------- */
+
+::selection {
+    background: rgba(59, 130, 246, 0.35);
+    color: #fff;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-deep);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 999px;
+    border: 2px solid var(--bg-deep);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
