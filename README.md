@@ -65,14 +65,34 @@ the palette is a set of CSS variables at the top of that file.
 
 ## Deployment
 
-Pushing to `main` (or `react-development`) runs
-[.github/workflows/deploy.yml](.github/workflows/deploy.yml), which builds and
-publishes `dist/` to GitHub Pages.
+Deployment is fully automated — there is no manual publish step.
 
-**One-time setup:** in the repo, go to *Settings → Pages* and set
-**Source** to **GitHub Actions**.
+Every push to `main` or `react-development` runs
+[.github/workflows/deploy.yml](.github/workflows/deploy.yml), which installs
+dependencies, runs `npm run build`, and publishes `dist/` to GitHub Pages.
+You can also trigger it by hand from the **Actions** tab (*Run workflow*).
+
+**Required one-time setup:** in the repo, go to *Settings → Pages* and set
+**Source** to **GitHub Actions**. Until that is set, the deploy job fails with
+a "Pages not configured" error.
+
+Both branches publish to the same site, so whichever you push last is what goes
+live. To restrict deploys to a single branch, edit the `branches:` list at the
+top of the workflow.
 
 Live URL: `https://thomasAllene.github.io/thomas-2026-portfolio/`
+
+### The old gh-pages branch
+
+This project previously published with `npm run deploy` (the `gh-pages`
+package), which pushed `dist/` to a `gh-pages` branch. That script and
+dependency have been removed — the workflow uploads a build artifact instead,
+so no `gh-pages` branch is involved. The existing `gh-pages` branch on the
+remote is now unused and can be deleted:
+
+```bash
+git push origin --delete gh-pages
+```
 
 ### If you rename the repo or move to a user site
 
