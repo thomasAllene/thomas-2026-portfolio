@@ -12,3 +12,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', fn () => view('index'))->name('home');
+Route::get('/projects', fn () => view('projects.index'))->name('projects.index');

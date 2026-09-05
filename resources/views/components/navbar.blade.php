@@ -24,13 +24,17 @@
                     <i class="tf-icons bx bx-x bx-sm"></i>
                 </button>
 
+                {{-- Section links are absolute so they also work from other pages --}}
                 <ul class="mx-auto navbar-nav">
-                    <li class="nav-item"><a class="fw-medium nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="fw-medium nav-link" href="#skills">Skills</a></li>
-                    <li class="nav-item"><a class="fw-medium nav-link" href="#projects">Projects</a></li>
-                    <li class="nav-item"><a class="fw-medium nav-link" href="#experience">Experience</a></li>
-                    <li class="nav-item"><a class="fw-medium nav-link" href="#education">Education</a></li>
-                    <li class="nav-item"><a class="fw-medium nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item"><a class="fw-medium nav-link" href="{{ route('home') }}#about">About</a></li>
+                    <li class="nav-item"><a class="fw-medium nav-link" href="{{ route('home') }}#skills">Skills</a></li>
+                    <li class="nav-item">
+                        <a class="fw-medium nav-link {{ request()->routeIs('projects.*') ? 'active' : '' }}"
+                            href="{{ route('projects.index') }}">Projects</a>
+                    </li>
+                    <li class="nav-item"><a class="fw-medium nav-link" href="{{ route('home') }}#experience">Experience</a></li>
+                    <li class="nav-item"><a class="fw-medium nav-link" href="{{ route('home') }}#education">Education</a></li>
+                    <li class="nav-item"><a class="fw-medium nav-link" href="{{ route('home') }}#contact">Contact</a></li>
                 </ul>
             </div>
 
@@ -38,7 +42,7 @@
             <div class="landing-menu-overlay d-lg-none"></div>
             <ul class="flex-row align-items-center navbar-nav d-flex">
                 <li>
-                    <a href="#contact" class="btn btn-primary">
+                    <a href="{{ route('home') }}#contact" class="btn btn-primary">
                         <span class="tf-icons bx bx-envelope me-md-1"></span>
                         <span class="d-none d-md-block">Hire Me</span>
                     </a>

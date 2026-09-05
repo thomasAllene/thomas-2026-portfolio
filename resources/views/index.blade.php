@@ -172,15 +172,15 @@
                 <span class="mb-3 chip d-inline-block">Portfolio</span>
                 <h2 class="section-title fw-bold">Selected projects</h2>
                 <p class="mx-auto mb-0 section-subtitle">
-                    A few things I've built. Replace these with your real work.
+                    A few systems I designed and built end-to-end.
                 </p>
             </div>
 
             <div class="row gy-4">
                 @foreach ([
-                    ['title' => 'Utility Management Platform', 'desc' => 'Multi-tenant system for monitoring smart meters and gateways across sites, with role-based access, reporting, and CSV/Excel exports.', 'tags' => ['Laravel', 'MySQL', 'DataTables'], 'icon' => 'bx bx-bar-chart-alt-2'],
-                    ['title' => 'Admin Dashboard Suite', 'desc' => 'Reusable admin panel with granular permissions, audit trails, and modular CRUD screens generated from a shared component library.', 'tags' => ['Laravel', 'Bootstrap', 'Blade'], 'icon' => 'bx bx-grid-alt'],
-                    ['title' => 'Lead & Order Pipeline', 'desc' => 'Sales pipeline tracking leads through to purchase orders, with status workflows, email notifications, and bulk actions.', 'tags' => ['Laravel', 'Queues', 'Mail'], 'icon' => 'bx bx-cart'],
+                    ['title' => 'MySymphony Platform', 'desc' => 'Public-facing pages and core modules solo-developed with Laravel — a lease form with automatic price calculation, auto-generated contracts with handwritten e-signature, and an interactive 2D sitemap builder with real-time booking availability.', 'tags' => ['Laravel', 'PHP', 'MySQL'], 'icon' => 'bx bx-buildings'],
+                    ['title' => 'Leads to Vehicle Releasing System', 'desc' => 'Full sales pipeline for Toyota Albay covering inventory, leads, reservation, earmarking, and releasing, with performance dashboards and per-agent tracking that replaced spreadsheet-based reporting.', 'tags' => ['Laravel', 'Bootstrap', 'ApexCharts'], 'icon' => 'bx bx-car'],
+                    ['title' => 'Honorarium Monitoring System', 'desc' => 'Multi-office document tracking for Bicol University Graduate School, with acknowledgment-based status at each stage and automatic email and in-system notifications keeping faculty informed in real time.', 'tags' => ['Laravel', 'jQuery', 'DataTables'], 'icon' => 'bx bx-receipt'],
                 ] as $i => $project)
                     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="{{ $i * 100 }}">
                         <div class="h-100 card glass-card project-card">
@@ -195,13 +195,19 @@
                                         <span class="chip chip-muted">{{ $tag }}</span>
                                     @endforeach
                                 </div>
-                                <a href="#" class="p-0 btn btn-link">
+                                <a href="{{ route('projects.index') }}" class="p-0 btn btn-link">
                                     View details <i class="bx bx-right-arrow-alt ms-1"></i>
                                 </a>
                             </div>
                         </div>
                     </div>
                 @endforeach
+            </div>
+
+            <div class="mt-5 text-center" data-aos="fade-up">
+                <a href="{{ route('projects.index') }}" class="px-4 btn btn-glass btn-lg rounded-pill">
+                    View all projects <i class="bx bx-right-arrow-alt ms-2"></i>
+                </a>
             </div>
         </div>
     </section>
