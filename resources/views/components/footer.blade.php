@@ -19,11 +19,11 @@
                 <div class="col-lg-3 col-md-4">
                     <h6 class="mb-4 footer-title">Navigate</h6>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#about" class="footer-link">About</a></li>
-                        <li class="mb-2"><a href="#skills" class="footer-link">Skills</a></li>
-                        <li class="mb-2"><a href="#projects" class="footer-link">Projects</a></li>
-                        <li class="mb-2"><a href="#experience" class="footer-link">Experience</a></li>
-                        <li class="mb-2"><a href="#education" class="footer-link">Education</a></li>
+                        <li class="mb-2"><a href="{{ route('home') }}#about" class="footer-link">About</a></li>
+                        <li class="mb-2"><a href="{{ route('home') }}#skills" class="footer-link">Skills</a></li>
+                        <li class="mb-2"><a href="{{ route('projects.index') }}" class="footer-link">Projects</a></li>
+                        <li class="mb-2"><a href="{{ route('home') }}#experience" class="footer-link">Experience</a></li>
+                        <li class="mb-2"><a href="{{ route('home') }}#education" class="footer-link">Education</a></li>
                     </ul>
                 </div>
 
