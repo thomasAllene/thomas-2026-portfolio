@@ -103,6 +103,8 @@ export const projects = [
         company: 'XS Enterprise',
         period: '2025 — Present',
         icon: 'bx bx-buildings',
+        // Banner shown on /projects. Path is relative to /public.
+        image: 'assets/img/projects/bookaroo-banner.png',
         featured: true,
         summary:
             'Public-facing pages and core modules solo-developed with Laravel — a lease form with automatic price calculation, auto-generated contracts with handwritten e-signature, and an interactive 2D sitemap builder with real-time booking availability.',

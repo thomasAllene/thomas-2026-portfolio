@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 
 import useDocumentMeta from '../hooks/useDocumentMeta.js';
+import ProjectThumb from '../components/ProjectThumb.jsx';
 import { projects } from '../data/portfolio.js';
 
 export default function ProjectsPage() {
@@ -39,9 +40,7 @@ export default function ProjectsPage() {
                             <div className="col-lg-6" key={project.title}
                                 data-aos="fade-up" data-aos-delay={(index % 2) * 100}>
                                 <div className="h-100 card glass-card project-card">
-                                    <div className="project-thumb">
-                                        <i className={project.icon} />
-                                    </div>
+                                    <ProjectThumb project={project} />
 
                                     <div className="p-4 card-body">
                                         <span className="mb-2 chip d-inline-block">{project.period}</span>
