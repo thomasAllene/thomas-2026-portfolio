@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en"
+    class="dark-style layout-wide"
+    dir="ltr"
+    data-theme="theme-default"
+    data-bs-theme="dark">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#05070c">
+
+    <title>Thomas Allene B. Escoto — UI/UX-Focused Full Stack Web Developer</title>
+    <meta name="description"
+        content="Portfolio of Thomas Allene B. Escoto — UI/UX-focused Full Stack Web Developer with 3 years of experience building efficient, easy-to-use web systems with Laravel.">
+
+    <link rel="icon" href="/thomas-2026-portfolio/favicon.ico" type="image/x-icon">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- Sneat dark core (includes Bootstrap 5) -->
+    <link rel="stylesheet" href="/thomas-2026-portfolio/assets/vendor/css/core-dark.css">
+    <link rel="stylesheet" href="/thomas-2026-portfolio/assets/vendor/css/demo.css">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="/thomas-2026-portfolio/assets/vendor/fonts/boxicons.css">
+
+    <!-- Sneat front pages -->
+    <link rel="stylesheet" href="/thomas-2026-portfolio/assets/vendor/css/pages/front-page.css">
+
+    <!-- Portfolio styles -->
+    <link rel="stylesheet" href="/thomas-2026-portfolio/assets/css/portfolio.css">
+
+    <!--
+      GitHub Pages has no server-side routing, so a hard refresh on /projects
+      returns 404.html. That file bounces the path here as a ?/ query string,
+      which this snippet turns back into a real URL before React Router boots.
+      Technique: rafgraph/spa-github-pages (MIT).
+    -->
+    <script>
+        (function () {
+            var l = window.location;
+            if (l.search[1] === '/') {
+                var decoded = l.search.slice(1).split('&').map(function (s) {
+                    return s.replace(/~and~/g, '&');
+                }).join('?');
+                window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash);
+            }
+        }());
+    </script>
+  <script type="module" crossorigin src="/thomas-2026-portfolio/assets/index-Bo9sVpYe.js"></script>
+  <link rel="stylesheet" crossorigin href="/thomas-2026-portfolio/assets/index-DvB2Xm2x.css">
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+
+</html>
