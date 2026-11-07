@@ -1,30 +1,20 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
-
-import Navbar from './components/Navbar.jsx';
-import Footer from './components/Footer.jsx';
-import ScrollManager from './components/ScrollManager.jsx';
 import Home from './pages/Home.jsx';
-import ProjectsPage from './pages/ProjectsPage.jsx';
 
+/**
+ * One cinematic page. "/projects" and "/projects/<slug>" render the same Home
+ * (a layout route keeps it mounted), so the 3D scene never reloads between them.
+ * GitHub Pages refreshes on these paths are handled by public/404.html.
+ */
 export default function App() {
     return (
-        <>
-            {/* Ambient aurora backdrop */}
-            <div className="bg-ambient" aria-hidden="true" />
-
-            <ScrollManager />
-
-            <Navbar />
-
-            <main>
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/projects" element={<ProjectsPage />} />
-                    <Route path="*" element={<Navigate to="/" replace />} />
-                </Routes>
-            </main>
-
-            <Footer />
-        </>
+        <Routes>
+            <Route element={<Home />}>
+                <Route index element={null} />
+                <Route path="projects" element={null} />
+                <Route path="projects/:slug" element={null} />
+            </Route>
+            <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
     );
 }

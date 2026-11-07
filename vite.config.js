@@ -14,5 +14,9 @@ export default defineConfig({
     base: '/thomas-2026-portfolio/',
     build: {
         outDir: 'dist',
+        // The 3D engine (Three.js) is ~600 kB / ~160 kB gzipped. It is already split
+        // into its own file and loaded after the page text, so the default 500 kB
+        // warning is expected here.
+        chunkSizeWarningLimit: 700,
     },
 });

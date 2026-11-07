@@ -1,196 +1,267 @@
 /**
- * Single source of truth for every piece of portfolio content.
- * Edit this file to update the site — no component changes needed.
+ * Every piece of portfolio content lives here.
+ * Edit this file to update the site; no component changes needed.
+ *
+ * Images: paths are relative to /public (no leading slash). BASE_URL adds the
+ * GitHub Pages sub-path at runtime. Put screenshots in
+ * public/assets/img/projects/<project-slug>/ and set `src` on a shot below.
  */
 
 export const profile = {
     name: 'Thomas Allene B. Escoto',
-    firstName: 'Thomas',
+    shortName: 'Thomas Escoto',
     title: 'UI/UX-Focused Full Stack Web Developer',
-    location: 'Philippines',
     email: 'thomazb.2305allene@gmail.com',
+    location: 'Tabaco City, Philippines',
+    timezone: 'UTC+8',
     github: 'https://github.com/thomasAllene',
-    linkedin: '#',
-    facebook: '#',
-    status: 'Open to opportunities',
-    availability: 'Available for work',
-    heroTagline:
-        'Three years turning manual, disconnected processes into efficient, easy-to-use web systems — bridging design and development so products stay consistent from concept to deployment.',
-    footerBlurb:
-        'UI/UX-focused Full Stack Web Developer turning manual, disconnected processes into efficient, easy-to-use web systems.',
+    linkedin: 'https://linkedin.com/in/thomasalleneescoto-uiuxdeveloper',
+    resume: 'resume/thomas-allene-escoto-resume.pdf',
 };
 
-export const about = [
-    'UI/UX-focused Full Stack Web Developer with 3 years of experience helping teams turn manual, disconnected processes into efficient, easy-to-use web systems.',
-    'Bridges design and development to reduce back-and-forth between UI/UX and engineering, cutting delivery time and keeping products consistent from concept to deployment. Builds automation into workflows — approvals, tracking, notifications, and reporting — that reduce manual work, minimize errors, and give teams clearer visibility into their operations.',
-    'Comfortable owning a project end-to-end, from requirements gathering through design, development, and QA, making it easy for companies to move fast without needing a large team.',
-];
+export const hero = {
+    status: 'Open to full-time remote roles and freelance projects',
+    lines: ['I design it.', 'Then I build it.'],
+    intro: 'I’ve helped offices eliminate lost paperwork, sales teams end duplicate lead handling, and managers access reports in seconds instead of days. Every system I deliver begins with a clear understanding of how your team works, then I design and build it around that.',
+    proof: [
+        { value: '3+ years', label: 'designing and building web systems' },
+        { value: '5+ projects', label: 'shipped to real users' },
+        { value: '4 industries', label: 'SaaS, automotive, education, retail' },
+        { value: '1 person', label: 'from Figma to launch' },
+    ],
+    clients: ['XS Enterprise', 'Toyota Albay', 'Bicol University', 'Falcon Vision'],
+};
 
-export const stats = [
-    { value: '3+', label: 'Years Experience' },
-    { value: '10+', label: 'Projects Delivered' },
-    { value: '100%', label: 'Commitment' },
-];
+/** The three beats that scale past the camera during the fly-through. */
+export const flyWords = ['Every system', 'starts as', 'a wireframe.'];
 
-export const skills = [
-    {
-        icon: 'bx bx-pen',
-        title: 'UI/UX Design',
-        items: ['Figma', 'Wireframing', 'User Flow Design', 'Prototyping', 'System Analysis'],
-    },
-    {
-        icon: 'bx bx-code-alt',
-        title: 'Web Development',
-        items: ['PHP', 'Laravel', 'JavaScript', 'jQuery', 'AJAX', 'HTML5', 'CSS3', 'Bootstrap'],
-    },
-    {
-        icon: 'bx bx-data',
-        title: 'Database',
-        items: ['MySQL', 'Database Design', 'Database Planning'],
-    },
-    {
-        icon: 'bx bx-wrench',
-        title: 'Tools',
-        items: ['Git', 'GitHub', 'Composer', 'VS Code'],
-    },
-];
-
-export const experience = [
-    {
-        period: '2025 — Present',
-        role: 'Full Stack Developer & UI/UX Designer',
-        company: 'XS Enterprise',
-        desc: 'Solo-developed public-facing pages and core modules for the Bookaroo platform end-to-end using Laravel. Built the Bookaroo lease form for storage-facility customers with automatic price calculation, and a document management feature that auto-generates lease contracts with integrated e-signature — including a handwritten signature that reflects on both the internal document and the contract sent to the customer. Also built an interactive 2D sitemap tool for designing custom site layouts with shapes, trees, and labels, paired with a public booking experience showing real-time availability tied to dates and pricing.',
-    },
-    {
-        period: 'March — April 2026',
-        role: 'Shopify Online Store Developer',
-        company: 'Falcon Vision Online Store (Freelance)',
-        desc: 'Customized the Zenith Shopify theme for an outdoor sunglasses e-commerce brand, handling full UI customization and designing every graphic asset in Photoshop. Optimized all assets to WebP for faster page loads and organized the product catalog into category collections to improve discoverability. Owned UI/UX design and asset direction while coordinating with a development partner who handled the Liquid theme code.',
-    },
-    {
-        period: 'September 2024 — February 2025',
-        role: 'Web Developer & UI/UX Designer',
-        company: 'Toyota Albay',
-        desc: 'Led design and development of a Toyota Albay CRM System covering the full sales pipeline — inventory, leads, reservation, earmarking, and releasing. Designed the UI/UX, contributed to the database architecture, and developed the frontend plus select backend functionality as part of a 4-person team, including sales performance dashboards, monthly and quarterly summaries, and per-agent tracking with Laravel, Bootstrap, and ApexCharts. Replacing manual, spreadsheet-based tracking reduced duplicate-customer handling, improved reporting speed, and sped up releasing turnaround. Served as a key point of contact with Toyota executives and maintained the system on the internal network.',
-    },
-    {
-        period: 'July 2024 — February 2025',
-        role: 'Web Developer & UI/UX Designer',
-        company: 'Bicol University Graduate School',
-        desc: 'Independently designed and developed a Honorarium Monitoring System giving faculty full visibility into their claimable honoraria — from data gathering through database design, development, and QA. Built a multi-office document tracking workflow across the Dean, Admin, Budget, and Cashier offices with acknowledgment-based status tracking at each stage, plus automatic email and in-system notifications triggered as each office acknowledges the documents, keeping professors informed in real time. Built with Laravel, Bootstrap, jQuery, and DataTables, and delivered as a paid engagement.',
-    },
-];
-
-export const education = {
-    period: 'S.Y. 2018 — 2022',
-    degree: 'Bachelor of Science in Information Technology',
-    school: 'Bicol University, Polangui Campus',
-    achievements: [
-        { icon: 'bx bx-award', text: "Dean's Lister, 2020 — 2021" },
-        { icon: 'bx bx-group', text: 'Elected Officer, IT+ Organization (two consecutive years)' },
+export const about = {
+    heading: 'Built around how people think and work.',
+    copy: 'Good design is more than how a screen looks. It’s whether people know where to go, what to click and what happens next. I start with how your team works and how users think, map the flow, then design every screen in Figma and build it myself, so what you approve is exactly what goes live.',
+    principles: [
+        { title: 'Understand the business first', text: 'Before designing anything, I talk to the people who will use the system and map how work moves today. Every screen answers a real problem, so nothing is built on guesswork.' },
+        { title: 'Design for how people think', text: 'I design flows, not just screens. I use how people naturally scan a page, make decisions and expect things to behave to make every step clear. Users find their way faster, with fewer mistakes and less training.' },
+        { title: 'Approve the design before the code', text: 'Every feature is designed in Figma and approved before development starts. Rework stays rare and timelines stay predictable.' },
+        { title: 'Build for the whole team', text: 'I build reusable components that keep the product consistent and save other developers from rebuilding the same parts.' },
     ],
 };
 
 /**
- * `featured: true` entries also appear in the landing page preview grid.
- * `summary` is the short landing-page copy; `desc` + `highlights` render on /projects.
+ * Skill groups, in scroll order. `piece` names the logo part each group lights up
+ * (the 3D engine maps group index -> logo pieces).
+ * To show official tool logos later, add `icon: 'assets/img/skills/figma.svg'`
+ * style entries by turning a chip string into { name, icon }.
+ */
+export const skills = {
+    heading: 'Everything it takes to ship.',
+    intro: 'Scroll through each group, or pick one to jump to it. Each one lights up its piece of the logo.',
+    groups: [
+        { icon: 'pen', title: 'UI/UX Design', piece: 'left eye', outcome: 'Screens people understand without a manual.',
+            chips: ['Figma', 'Adobe XD', 'Photoshop', 'User flows', 'Navigation design', 'UX psychology', 'Prototyping', 'Logo & brand identity'] },
+        { icon: 'code', title: 'Frontend', piece: 'right eye', outcome: 'Fast, responsive interfaces that work on any screen.',
+            chips: ['HTML', 'CSS', 'JavaScript', 'React', 'Bootstrap', 'jQuery', 'AJAX', 'Konva.js', 'ApexCharts', 'DataTables'] },
+        { icon: 'db', title: 'Backend & Data', piece: 'nose', outcome: 'Reliable logic, clean data and the right access for every role.',
+            chips: ['Laravel', 'PHP', 'MySQL', 'REST APIs', 'Database design', 'Role-based permissions'] },
+        { icon: 'spark', title: 'AI & Automation', piece: 'tie', outcome: 'Work that runs on its own, like answering calls and booking appointments 24/7.',
+            chips: ['ElevenLabs voice agents', 'n8n workflows', 'E-signature (Signature Pad)'] },
+        { icon: 'tool', title: 'Platforms & Tools', piece: 'brows', outcome: 'From code to a live server, handled.',
+            chips: ['VS Code', 'Git & GitHub', 'Shopify', 'VPS hosting & deployment', 'Composer'] },
+    ],
+};
+
+export const projectsSection = {
+    heading: 'Proof, not promises.',
+    intro: 'Real systems, used every day by real teams. Open any project to see the problem, what I built and what changed.',
+};
+
+/**
+ * Projects, in gallery order. Each one gets its own page at /projects/<slug>.
+ * `thumb` picks the animated mini-interface on the gallery card.
+ * Every shot has a `label` (what to capture) and an optional `src`.
  */
 export const projects = [
     {
-        title: 'Bookaroo Platform',
-        shortTitle: 'Bookaroo Platform',
-        company: 'XS Enterprise',
-        period: '2025 — Present',
-        icon: 'bx bx-buildings',
-        // Banner shown on /projects. Path is relative to /public.
-        image: 'assets/img/projects/bookaroo-banner.png',
-        featured: true,
-        summary:
-            'Public-facing pages and core modules solo-developed with Laravel — a lease form with automatic price calculation, auto-generated contracts with handwritten e-signature, and an interactive 2D sitemap builder with real-time booking availability.',
-        desc: 'Public-facing pages and core modules for the Bookaroo platform, solo-developed end-to-end with Laravel.',
-        highlights: [
-            'Bookaroo lease form for customers leasing storage facilities, with automatic price calculation.',
-            'Document management that auto-generates lease contracts with integrated e-signature — including a handwritten signature that reflects on both the internal document and the contract sent to the customer.',
-            'Interactive 2D sitemap tool letting admins design custom site layouts with shapes, trees, and labels.',
-            'Public booking experience showing real-time site availability tied to dates and pricing.',
+        slug: 'bookaroo', name: 'Bookaroo', thumb: 'map', client: 'XS Enterprise', period: '2025 – present',
+        card: 'Booking platform for storage, RV park, real estate and wellness businesses, with an AI receptionist, live booking maps and paperless leasing.',
+        tagline: 'A SaaS booking platform for storage, RV park, real estate and wellness businesses.',
+        facts: [
+            ['Role', 'Full stack developer and UI/UX designer'],
+            ['Team', 'Developer at XS Enterprise, owning key modules'],
+            ['Timeline', '2025 – present'],
+            ['Stack', 'Laravel, PHP, MySQL, JavaScript, Konva.js, Signature Pad, n8n, ElevenLabs, Figma'],
         ],
-        tags: ['Laravel', 'PHP', 'MySQL', 'Bootstrap'],
-        featuredTags: ['Laravel', 'PHP', 'MySQL'],
+        overview: 'Bookaroo helps businesses take bookings, manage customers and run day-to-day operations online. I build some of the platform’s most complex modules, including the interactive site map builder, the leasing and contract flow, role-based access and the AI receptionist.',
+        heroShot: { label: 'Bookaroo home page', src: 'assets/img/projects/bookaroo-banner.png' },
+        stories: [
+            { title: 'An AI receptionist for wellness businesses',
+                problem: 'Wellness clients needed calls answered and appointments booked around the clock, while real estate clients were already using AI booking live.',
+                built: 'A separate voice receptionist setup for wellness, so the live system was never touched.',
+                result: 'Calls answered 24/7, common questions handled and appointments booked automatically, with no downtime for existing users.',
+                shot: { label: 'AI receptionist setup screen', src: null } },
+            { title: 'An interactive site map and booking page',
+                problem: 'RV parks needed a visual booking map, but map services charge ongoing fees.',
+                built: 'A self-hosted 2D map builder where admins draw their own park layout, and customers book from a live map showing real-time availability and pricing.',
+                result: 'Built in 3 days, with zero recurring cost.',
+                shot: { label: 'Site map builder (admin) and live booking map (customer)', src: null } },
+            { title: 'Paperless leasing',
+                problem: 'Leasing a storage unit meant quoting prices by hand and signing paper contracts.',
+                built: 'A lease form that calculates pricing automatically and generates contracts customers sign online.',
+                result: 'One automated flow from quote to signed contract, using a free e-signature library instead of a paid service.',
+                shot: { label: 'Lease form with automatic pricing, or a signed contract', src: null } },
+            { title: 'Role-based access for real estate',
+                problem: 'Team members needed access to client data without seeing more than their role required.',
+                built: 'Role-based permissions and a dashboard tailored to each role.',
+                result: 'Every team member sees only what they should, and client data stays private.',
+                shot: { label: 'Role-based dashboard', src: null } },
+        ],
+        howTitle: 'How I work on Bookaroo',
+        how: 'Every feature is designed in Figma and approved by management before coding, so rework is rare. I also build reusable components the whole team uses, keeping the product consistent.',
     },
     {
-        title: 'Toyota Albay CRM System',
-        shortTitle: 'Leads to Vehicle Releasing System',
-        company: 'Toyota Albay',
-        period: 'September 2024 — February 2025',
-        icon: 'bx bx-car',
-        featured: true,
-        summary:
-            'Full sales pipeline for Toyota Albay covering inventory, leads, reservation, earmarking, and releasing, with performance dashboards and per-agent tracking that replaced spreadsheet-based reporting.',
-        desc: 'Full sales pipeline system covering inventory, leads, reservation, earmarking, and releasing, built as part of a 4-person team.',
-        highlights: [
-            'Led the design and development effort, and served as a key point of contact with Toyota executives.',
-            'Designed the UI/UX, contributed to the database architecture, and built the frontend plus select backend functionality.',
-            'Sales performance dashboards with monthly and quarterly summaries and per-agent tracking.',
-            'Replaced manual, spreadsheet-based tracking — reducing duplicate-customer handling, improving reporting speed, and speeding up releasing turnaround.',
-            'Deployed and maintained on the Toyota Albay internal network.',
+        slug: 'toyota-albay-crm', name: 'Toyota Albay Sales CRM', thumb: 'chart', client: 'Toyota Albay', period: 'Sep 2024 – Feb 2025',
+        card: 'One shared system for 20–30 sales agents, from first lead to vehicle release.',
+        tagline: 'One shared sales system for a car dealership, from first lead to vehicle release.',
+        facts: [
+            ['Role', 'Full stack developer and UI/UX lead'],
+            ['Team', '4-person team, freelance project'],
+            ['Timeline', 'Sep 2024 – Feb 2025'],
+            ['Stack', 'Laravel, Bootstrap, ApexCharts, MySQL, Figma'],
         ],
-        tags: ['Laravel', 'Bootstrap', 'ApexCharts', 'MySQL'],
-        featuredTags: ['Laravel', 'Bootstrap', 'ApexCharts'],
+        overview: 'Toyota Albay’s sales team tracked leads and vehicles across Excel files, paper forms and group chats. I helped turn that into one system for 20–30 sales agents, designing the process flow, the database and the interface, and building across the frontend and backend.',
+        heroShot: { label: 'Main pipeline or dashboard', src: null },
+        stories: [
+            { title: 'One pipeline instead of scattered files',
+                problem: 'Leads and vehicles lived in spreadsheets, logbooks and chat messages, so no one had the full picture.',
+                built: 'A single pipeline covering inventory, leads, reservation, earmarking and releasing.',
+                result: 'Every agent works from the same up-to-date records.',
+                shot: { label: 'Pipeline view, from leads to releasing', src: null } },
+            { title: 'One customer, one record',
+                problem: 'Duplicate records led two agents to chase the same buyer, sparked commission disputes and inflated lead counts.',
+                built: 'One shared record per customer.',
+                result: 'No more double-handling, clear ownership of every sale, and accurate reports.',
+                shot: { label: 'Customer record screen', src: null } },
+            { title: 'Live sales dashboards',
+                problem: 'Monthly and quarterly reports took days to compile by hand.',
+                built: 'Live dashboards with per-agent performance tracking.',
+                result: 'Reporting went from days to instant. Management sees results anytime.',
+                shot: { label: 'Sales dashboard with per-agent tracking', src: null } },
+        ],
+        howTitle: 'How I worked',
+        how: 'I mapped the sales process flow and designed the database, then set the UI design and screen layouts the whole team built on. I also joined client meetings with Toyota executives to gather requirements and present progress. We delivered on schedule, and management gave positive feedback after launch.',
     },
     {
-        title: 'Honorarium Monitoring System',
-        shortTitle: 'Honorarium Monitoring System',
-        company: 'Bicol University Graduate School',
-        period: 'July 2024 — February 2025',
-        icon: 'bx bx-receipt',
-        featured: true,
-        summary:
-            'Multi-office document tracking for Bicol University Graduate School, with acknowledgment-based status at each stage and automatic email and in-system notifications keeping faculty informed in real time.',
-        desc: 'Independently designed and developed system giving faculty full visibility into their claimable honoraria — from data gathering through database design, development, and QA.',
-        highlights: [
-            'Multi-office document tracking workflow across the Dean, Admin, Budget, and Cashier offices.',
-            'Acknowledgment-based status tracking at each stage of the approval chain.',
-            'Automatic email and in-system notifications triggered as each office acknowledges the documents.',
-            'Kept professors informed of their claim status in real time.',
+        slug: 'falcon-vision', name: 'Falcon Vision Online Store', thumb: 'shop', client: 'Falcon Vision, freelance', period: 'Mar – Apr 2026',
+        card: 'A redesigned Shopify storefront, launched in just over a month.',
+        tagline: 'A redesigned Shopify storefront for an outdoor sunglasses brand.',
+        facts: [
+            ['Role', 'Shopify designer and project lead'],
+            ['Team', 'Worked with a development partner who handled theme code'],
+            ['Timeline', 'Mar – Apr 2026, freelance'],
+            ['Stack', 'Shopify (Zenith theme), Photoshop'],
         ],
-        tags: ['Laravel', 'Bootstrap', 'jQuery', 'DataTables'],
-        featuredTags: ['Laravel', 'jQuery', 'DataTables'],
+        link: 'https://falconvision.store/',
+        overview: 'Falcon Vision’s online store felt generic, and its products were hard to find. I led the redesign, owning the UI/UX, every brand graphic and all client communication, and launched the live store in 1 month and 1 week.',
+        heroShot: { label: 'Store landing page', src: null },
+        stories: [
+            { title: 'A polished brand storefront',
+                problem: 'Products were unorganized, and the pages felt generic.',
+                built: 'Redesigned theme sections and a reworked landing page, laid out to guide shoppers from the brand story to the products.',
+                result: 'A store that looks and feels like a real brand.',
+                shot: { label: 'Redesigned store section', src: null } },
+            { title: 'One consistent look',
+                problem: 'The store needed brand graphics without the cost of a separate designer or stock images.',
+                built: 'Every banner and graphic, made in Photoshop in a single style.',
+                result: 'One consistent brand look, at no extra cost.',
+                shot: { label: 'Banner and graphic set', src: null } },
+            { title: 'Easier product discovery',
+                problem: 'Shoppers had to dig to find the right product.',
+                built: 'The catalog reorganized into clear collections by category.',
+                result: 'Shoppers reach the right product in fewer clicks.',
+                shot: { label: 'Collections page', src: null } },
+            { title: 'Faster pages',
+                problem: 'Rich graphics can slow a store down.',
+                built: 'Every graphic exported in a lightweight web format.',
+                result: 'Fast-loading pages without lower image quality.',
+                shot: { label: 'Mobile view of the store', src: null } },
+        ],
+        howTitle: 'How I worked',
+        how: 'I led client meetings and got every design approved before it was built, which avoided rework. The live store launched in 1 month and 1 week, with positive feedback from the client.',
     },
     {
-        title: 'Falcon Vision Online Store',
-        shortTitle: 'Falcon Vision Online Store',
-        company: 'Freelance',
-        period: 'March — April 2026',
-        icon: 'bx bx-store',
-        featured: false,
-        summary:
-            'Shopify storefront for an outdoor sunglasses brand, built on a fully customized Zenith theme with all graphic assets designed in Photoshop.',
-        desc: 'Shopify storefront for an outdoor sunglasses e-commerce brand, built on a fully customized Zenith theme.',
-        highlights: [
-            'Full UI customization of the Zenith Shopify theme.',
-            'All graphic assets designed in Photoshop and optimized to WebP for faster page load speed.',
-            'Product catalog organized into collections by category to improve discoverability.',
-            'Owned UI/UX design and asset direction while coordinating with a development partner who handled the Liquid theme code.',
+        slug: 'honorarium-system', name: 'Honorarium Monitoring System', thumb: 'flow', client: 'Bicol University Graduate School', period: 'Jul 2024 – Feb 2025',
+        card: 'Real-time claim tracking for 70+ faculty across four offices.',
+        tagline: 'Real-time honorarium tracking for a university graduate school.',
+        facts: [
+            ['Role', 'Sole UI/UX designer and full stack developer'],
+            ['Team', 'Solo'],
+            ['Timeline', 'Jul 2024 – Feb 2025, full-time, on-site'],
+            ['Stack', 'Laravel, Bootstrap, jQuery, DataTables, MySQL'],
         ],
-        tags: ['Shopify', 'Liquid', 'Photoshop', 'WebP'],
-        featuredTags: ['Shopify', 'Liquid', 'Photoshop'],
+        overview: 'At Bicol University Graduate School, honorarium claims moved on paper between the Dean, Admin, Budget and Cashier offices, and professors had no way to know where their claim stood. I built the system that tracks every claim from submission to release, on my own, from requirements to launch.',
+        heroShot: { label: 'Faculty claim tracker', src: null },
+        stories: [
+            { title: 'Claim tracking for 70+ faculty',
+                problem: 'Professors had to visit offices, call or simply wait to learn if their honorarium was ready.',
+                built: 'Real-time claim tracking showing where each claim stands and how much can be claimed.',
+                result: 'Office-to-office follow-ups ended for 70+ faculty.',
+                shot: { label: 'Claim status view', src: null } },
+            { title: 'A paperless approval chain',
+                problem: 'Paper logbooks let claims stall or go missing between four offices.',
+                built: 'A digital approval chain where each office acknowledges documents in the system.',
+                result: 'Claims move faster, and nothing slips through.',
+                shot: { label: 'Office acknowledgment screen', src: null } },
+            { title: 'Automatic status alerts',
+                problem: 'Office staff spent their time answering status questions.',
+                built: 'Email and in-app alerts at every approval step.',
+                result: 'Faculty stay informed without calling the office.',
+                shot: { label: 'Email and in-app notifications', src: null } },
+        ],
+        howTitle: 'How I worked',
+        how: 'I gathered requirements directly from each office, then designed, built and tested the full system myself. It was delivered on time, with positive feedback from the Graduate School.',
     },
 ];
 
-export const featuredProjects = projects.filter((project) => project.featured);
+export const process = {
+    heading: 'From first meeting to launch day.',
+    intro: 'The same four steps on every project, so you always know what happens next.',
+    steps: [
+        { title: 'Understand', text: 'I meet the people who will use the system, learn how work moves today, and find where it slows down or breaks.', output: 'process flow and requirements' },
+        { title: 'Design', text: 'I map the user flow and database, then design every screen in Figma with clear, easy navigation. You review and approve it before any code is written.', output: 'approved Figma prototype' },
+        { title: 'Build', text: 'I build the frontend and backend to match the approved design, using reusable components that keep everything consistent.', output: 'a working system' },
+        { title: 'Test and launch', text: 'I test every flow, deploy it to a live server, and stay on to fix what real use uncovers.', output: 'live and in daily use' },
+    ],
+};
 
-export const contactLinks = [
-    { icon: 'bx bx-envelope', label: 'Email', value: profile.email, href: `mailto:${profile.email}` },
-    { icon: 'bx bxl-github', label: 'GitHub', value: '@thomasAllene', href: profile.github },
-    { icon: 'bx bxl-linkedin', label: 'LinkedIn', value: 'Connect with me', href: profile.linkedin },
-];
+export const experience = {
+    heading: 'Where I’ve done the work.',
+    jobs: [
+        { year: '2026', period: '2025 – present', type: 'Full-time, remote', role: 'Full Stack Developer & UI/UX Designer', org: 'XS Enterprise', project: 'bookaroo',
+            desc: 'I build complex modules for Bookaroo, a SaaS booking platform for storage, RV park, real estate and wellness businesses.',
+            highlights: ['AI receptionist that answers calls and books appointments 24/7', 'Self-hosted site map builder, built in 3 days', 'Automated leasing with e-signature contracts', 'Role-based permissions for the real estate module'] },
+        { year: '2026', period: 'Mar – Apr 2026', type: 'Freelance', role: 'Shopify Designer & Project Lead', org: 'Falcon Vision', project: 'falcon-vision',
+            desc: 'I led the redesign of an outdoor sunglasses store, from UI/UX and brand graphics to client meetings.',
+            highlights: ['Live store launched in 1 month and 1 week', 'Every graphic designed in one consistent style', 'Catalog reorganized into clear collections'] },
+        { year: '2024', period: 'Sep 2024 – Feb 2025', type: 'Freelance', role: 'Full Stack Developer & UI/UX Lead', org: 'Toyota Albay', project: 'toyota-albay-crm',
+            desc: 'I designed the process flow, database and interface for a sales system used by 20–30 agents.',
+            highlights: ['One pipeline from first lead to vehicle release', 'Duplicate customer records eliminated', 'Sales reporting cut from days to instant'] },
+        { year: '2024', period: 'Jul 2024 – Feb 2025', type: 'Full-time, on-site', role: 'Web Developer & UI/UX Designer', org: 'Bicol University Graduate School', project: 'honorarium-system',
+            desc: 'I designed and built the Honorarium Monitoring System on my own, from requirements to launch.',
+            highlights: ['Real-time claim tracking for 70+ faculty', 'Paperless approval chain across four offices', 'Automatic email and in-app status alerts'] },
+    ],
+};
 
-export const navLinks = [
-    { label: 'About', to: '/', hash: '#about' },
-    { label: 'Skills', to: '/', hash: '#skills' },
-    { label: 'Projects', to: '/projects' },
-    { label: 'Experience', to: '/', hash: '#experience' },
-    { label: 'Education', to: '/', hash: '#education' },
-    { label: 'Contact', to: '/', hash: '#contact' },
+export const contact = {
+    heading: 'Have something that needs building?',
+    text: 'Hiring a developer who can also design? I’m open to full-time remote roles. Running a small business that needs a better system? I build those too: booking platforms, internal tools and online stores, designed and built end to end.',
+};
+
+/** Section ids in scroll order, with the label used by the side dots. */
+export const sections = [
+    { id: 'hero', label: 'Intro' },
+    { id: 'about', label: 'About' },
+    { id: 'skills', label: 'Skills' },
+    { id: 'projects', label: 'Projects' },
+    { id: 'process', label: 'Process' },
+    { id: 'experience', label: 'Experience' },
+    { id: 'contact', label: 'Contact' },
 ];
