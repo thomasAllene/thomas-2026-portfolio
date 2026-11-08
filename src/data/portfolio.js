@@ -81,7 +81,7 @@ export const projectsSection = {
  */
 export const projects = [
     {
-        slug: 'bookaroo', name: 'Bookaroo', thumb: 'map', client: 'XS Enterprise', period: '2025 – present',
+        slug: 'bookaroo', name: 'Bookaroo', thumb: 'map', client: 'XS Enterprise', period: 'May 2025 – present',
         card: 'Booking platform for storage, RV park, real estate and wellness businesses, with an AI receptionist, live booking maps and paperless leasing.',
         tagline: 'A SaaS booking platform for storage, RV park, real estate and wellness businesses.',
         facts: [
@@ -235,7 +235,7 @@ export const process = {
 export const experience = {
     heading: 'Where I’ve done the work.',
     jobs: [
-        { year: '2026', period: '2025 – present', type: 'Full-time, remote', role: 'Full Stack Developer & UI/UX Designer', org: 'XS Enterprise', project: 'bookaroo',
+        { year: '2026', period: 'May 2025 – present', type: 'Full-time, remote', role: 'Full Stack Developer & UI/UX Designer', org: 'XS Enterprise', project: 'bookaroo',
             desc: 'I build complex modules for Bookaroo, a SaaS booking platform for storage, RV park, real estate and wellness businesses.',
             highlights: ['AI receptionist that answers calls and books appointments 24/7', 'Self-hosted site map builder, built in 3 days', 'Automated leasing with e-signature contracts', 'Role-based permissions for the real estate module'] },
         { year: '2026', period: 'Mar – Apr 2026', type: 'Freelance', role: 'Shopify Designer & Project Lead', org: 'Falcon Vision', project: 'falcon-vision',
