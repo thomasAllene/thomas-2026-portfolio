@@ -15,7 +15,7 @@ export const profile = {
     location: 'Tabaco City, Philippines',
     timezone: 'UTC+8',
     github: 'https://github.com/thomasAllene',
-    linkedin: 'https://linkedin.com/in/thomasalleneescoto-uiuxdeveloper',
+    linkedin: 'https://www.linkedin.com/in/thomasalleneescoto-uiuxdeveloper/',
     resume: 'resume/thomas-allene-escoto-resume.pdf',
 };
 
