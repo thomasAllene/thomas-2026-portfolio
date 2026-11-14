@@ -130,7 +130,7 @@ export const projects = [
         ],
         overview: 'Toyota Albay’s sales team tracked leads and vehicles across Excel files, paper forms and group chats. I helped turn that into one system for 20–30 sales agents, designing the process flow, the database and the interface, and building across the frontend and backend.',
         repo: 'https://github.com/thomasAllene/Toyota_Albay_CRM_System',
-        heroShot: { label: 'Sales funnel dashboard', src: 'assets/img/projects/toyota-albay-crm/toyota-dashboard.webp' },
+        heroShot: { label: 'Sales dashboard, monthly released units', src: 'assets/img/projects/toyota-albay-crm/toyota-dashboard.webp' },
         stories: [
             { title: 'One pipeline instead of scattered files',
                 problem: 'Leads and vehicles lived in spreadsheets, logbooks and chat messages, so no one had the full picture.',
