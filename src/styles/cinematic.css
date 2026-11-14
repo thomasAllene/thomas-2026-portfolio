@@ -146,6 +146,15 @@ main{position:relative;z-index:2}
 .principle.open{border-color:rgba(125,211,252,.4);background:rgba(59,130,246,.07)}
 .principle.open .more{grid-template-rows:1fr}
 .principle.open .plus{transform:rotate(45deg);color:var(--sky)}
+/* On phones the About content can't fit in one locked viewport, so let the
+   section flow at its natural height instead of clipping the last card.
+   Reveal states are forced on since the pinned scrub no longer drives them. */
+@media (max-width:700px){
+  #about.shot.pinned{height:auto}
+  #about .pin{position:relative;height:auto;min-height:0;overflow:visible;padding:88px 0;align-items:flex-start}
+  #about .reveal-words .w{opacity:1}
+  #about .principle{opacity:1;transform:none}
+}
 
 /* Skills */
 .skills-layout{display:grid;grid-template-columns:minmax(0,600px) 1fr;gap:40px;align-items:center;width:100%}
@@ -175,6 +184,19 @@ main{position:relative;z-index:2}
 .drag-hint svg{width:16px;height:16px}
 @media (max-width:900px){.skills-layout{grid-template-columns:1fr}.drag-zone{display:none}.skills-grid{grid-template-columns:1fr 1fr}}
 @media (max-width:560px){.skills-grid{grid-template-columns:1fr}.skill .outcome{display:none}.skill.active .outcome{display:block}}
+/* On phones the locked viewport can't hold every skill card, so let the
+   section flow at its natural height and expand every card's details
+   (the pinned scrub that normally reveals one at a time no longer runs). */
+@media (max-width:700px){
+  #skills.shot.pinned{height:auto}
+  #skills .pin{position:relative;height:auto;min-height:0;overflow:visible;padding:88px 0;align-items:flex-start}
+  #skills .skill .outcome{display:block}
+  #skills .chips-wrap{grid-template-rows:1fr}
+  #skills .chips{padding-top:12px}
+  #skills .chips li{opacity:1;transform:none}
+  /* neutralise the active-card highlight so scroll doesn't make cards jump */
+  #skills .skill.active{transform:none;border-color:var(--line);background:var(--panel)}
+}
 
 /* Projects gallery */
 .gallery{flex-direction:column;justify-content:center;align-items:stretch;gap:34px;perspective:1500px}
@@ -232,6 +254,19 @@ main{position:relative;z-index:2}
 .step.active h3{color:var(--text)}
 .step.active p{opacity:1}
 @media (max-width:900px){.process-layout{grid-template-columns:1fr}.process-layout > .spacer{display:none}}
+/* On phones the locked viewport can't hold all four steps, so let the section
+   flow at its natural height and show every step fully (the pinned scrub that
+   normally lights steps up one by one no longer runs). */
+@media (max-width:700px){
+  #process.shot.pinned{height:auto}
+  #process .pin{position:relative;height:auto;min-height:0;overflow:visible;padding:88px 0;align-items:flex-start}
+  #process .step h3{color:var(--text)}
+  #process .step p{opacity:1}
+  #process .step .dot i{border-color:var(--blue);background:var(--blue)}
+  /* keep the active-step highlight from jumping steps around while scrolling */
+  #process .step.active{transform:none;background:transparent;border-color:transparent}
+  #process .step.active .dot i{box-shadow:none}
+}
 
 /* Experience depth tunnel */
 .exp-layout{display:grid;grid-template-columns:minmax(0,600px) 1fr;gap:40px;width:100%;height:100%;align-items:center}

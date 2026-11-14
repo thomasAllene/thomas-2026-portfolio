@@ -394,7 +394,19 @@ export function startCinematic(root, { onCloseCase } = {}) {
     /* ================= interactions ================= */
     principles.forEach(c => {
         const btn = c.querySelector('button');
-        on(btn, 'click', () => { const open = !c.classList.contains('open'); c.classList.toggle('open', open); btn.setAttribute('aria-expanded', open); });
+        on(btn, 'click', () => {
+            const open = !c.classList.contains('open');
+            // single-open accordion: opening one closes the others so the
+            // pinned (fixed-height) section never overflows and clips a card
+            if (open) principles.forEach(other => {
+                if (other === c) return;
+                other.classList.remove('open');
+                const ob = other.querySelector('button');
+                if (ob) ob.setAttribute('aria-expanded', false);
+            });
+            c.classList.toggle('open', open);
+            btn.setAttribute('aria-expanded', open);
+        });
     });
     // skills: picking a group scrolls to that group's part of the section
     skillBtns.forEach((b, i) => on(b, 'click', () => {
