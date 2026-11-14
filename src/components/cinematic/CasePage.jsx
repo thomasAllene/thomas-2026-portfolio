@@ -45,7 +45,10 @@ export default function CasePage({ project, onBack, onNext }) {
 
     const idx = projects.indexOf(project);
     const next = projects[(idx + 1) % projects.length];
-    const shots = [project.heroShot, ...project.stories.map(s => s.shot)];
+    // Projects under a confidentiality agreement have no screenshots at all,
+    // so only collect the shots that exist and remember each one's position.
+    const shots = [project.heroShot, ...project.stories.map(s => s.shot)].filter(Boolean);
+    const shotIndex = shot => shots.indexOf(shot);
     const move = d => setLb(i => (i + d + shots.length) % shots.length);
 
     return (
@@ -63,9 +66,19 @@ export default function CasePage({ project, onBack, onNext }) {
                     <h1 id="caseTitle">{project.name}</h1>
                     <p className="tag">{project.tagline}</p>
                 </header>
-                <div className="case-shot-hero" style={{ '--d': 1 }}>
-                    <ShotFrame shot={project.heroShot} onOpen={() => setLb(0)} />
-                </div>
+                {project.heroShot ? (
+                    <div className="case-shot-hero" style={{ '--d': 1 }}>
+                        <ShotFrame shot={project.heroShot} onOpen={() => setLb(shotIndex(project.heroShot))} />
+                    </div>
+                ) : null}
+                {project.confidential ? (
+                    <div className="card case-notice" role="note" style={{ '--d': 1 }}>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true">
+                            <rect x="5" y="10.5" width="14" height="10" rx="2.2" /><path d="M8.5 10.5V7.8a3.5 3.5 0 0 1 7 0v2.7" />
+                        </svg>
+                        <div><b>Confidential project</b><p>{project.confidential}</p></div>
+                    </div>
+                ) : null}
                 <div className="facts" style={{ '--d': 2, marginTop: 20 }}>
                     {project.facts.map(([k, v]) => <div className="card fact" key={k}><span>{k}</span><b>{v}</b></div>)}
                 </div>
@@ -89,8 +102,8 @@ export default function CasePage({ project, onBack, onNext }) {
                 <section className="case-section wide" style={{ '--d': 4 }}>
                     <h2>What I built</h2>
                     <div className="stories">
-                        {project.stories.map((st, i) => (
-                            <article className="story" key={st.title}>
+                        {project.stories.map(st => (
+                            <article className={`story${st.shot ? '' : ' no-shot'}`} key={st.title}>
                                 <div>
                                     <h3>{st.title}</h3>
                                     <dl>
@@ -99,7 +112,7 @@ export default function CasePage({ project, onBack, onNext }) {
                                         <div><dt>Result</dt><dd className="result">{st.result}</dd></div>
                                     </dl>
                                 </div>
-                                <ShotFrame shot={st.shot} onOpen={() => setLb(i + 1)} />
+                                {st.shot ? <ShotFrame shot={st.shot} onOpen={() => setLb(shotIndex(st.shot))} /> : null}
                             </article>
                         ))}
                     </div>
@@ -112,7 +125,7 @@ export default function CasePage({ project, onBack, onNext }) {
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
                 </button>
             </div>
-            <Lightbox items={shots} index={lb} onClose={() => setLb(-1)} onMove={move} />
+            {shots.length ? <Lightbox items={shots} index={lb} onClose={() => setLb(-1)} onMove={move} /> : null}
         </>
     );
 }

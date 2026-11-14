@@ -414,3 +414,10 @@ main{position:relative;z-index:2}
 .case-links .btn svg{width:16px;height:16px}
 .case-link-host{font:500 12px var(--font-mono);color:var(--muted)}
 .code-tag{align-self:flex-start;font:500 11.5px var(--font-mono);color:var(--sky);padding:3px 10px;border-radius:999px;border:1px solid rgba(125,211,252,.35);background:rgba(59,130,246,.08)}
+
+/* Confidential projects: a notice in place of screenshots, and text-only stories */
+.case-notice{margin-top:34px;display:flex;gap:16px;align-items:flex-start;padding:22px 24px}
+.case-notice svg{flex:none;width:26px;height:26px;color:var(--sky);margin-top:2px}
+.case-notice b{display:block;font:600 15px var(--font-display);color:var(--text);margin-bottom:4px}
+.case-notice p{margin:0;font-size:15.5px;color:var(--body)}
+.story.no-shot{grid-template-columns:1fr;max-width:820px}
