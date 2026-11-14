@@ -76,6 +76,7 @@ export const projectsSection = {
 
 /**
  * Projects, in gallery order. Each one gets its own page at /projects/<slug>.
+ * Optional: `link` (live site) and `repo` (public source code on GitHub).
  * `thumb` picks the animated mini-interface on the gallery card.
  * Every shot has a `label` (what to capture) and an optional `src`.
  */
@@ -128,6 +129,7 @@ export const projects = [
             ['Stack', 'Laravel, Bootstrap, ApexCharts, MySQL, Figma'],
         ],
         overview: 'Toyota Albay’s sales team tracked leads and vehicles across Excel files, paper forms and group chats. I helped turn that into one system for 20–30 sales agents, designing the process flow, the database and the interface, and building across the frontend and backend.',
+        repo: 'https://github.com/thomasAllene/Toyota_Albay_CRM_System',
         heroShot: { label: 'Sales funnel dashboard', src: 'assets/img/projects/toyota-albay-crm/toyota-dashboard.webp' },
         stories: [
             { title: 'One pipeline instead of scattered files',

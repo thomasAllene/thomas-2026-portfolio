@@ -135,6 +135,7 @@ function ProjectCard({ project, onOpen }) {
                 <div className="pmeta"><span className="client">{project.client}</span><span>{project.period}</span></div>
                 <h3>{project.name}</h3>
                 <p className="tag">{project.card}</p>
+                {project.repo ? <span className="code-tag">Source code on GitHub</span> : null}
                 <span className="open">Open project page <ArrowIcon /></span>
             </div>
         </a>

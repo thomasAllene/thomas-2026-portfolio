@@ -4,7 +4,7 @@
  */
 import { useEffect, useState } from 'react';
 import { projects } from '../../data/portfolio.js';
-import { ShotFrame } from './Parts.jsx';
+import { GitHubIcon, ShotFrame } from './Parts.jsx';
 
 function Lightbox({ items, index, onClose, onMove }) {
     useEffect(() => {
@@ -69,10 +69,19 @@ export default function CasePage({ project, onBack, onNext }) {
                 <div className="facts" style={{ '--d': 2, marginTop: 20 }}>
                     {project.facts.map(([k, v]) => <div className="card fact" key={k}><span>{k}</span><b>{v}</b></div>)}
                 </div>
-                {project.link ? (
-                    <p style={{ '--d': 2, marginTop: 14, fontSize: 14 }}>
-                        Live site: <a href={project.link} target="_blank" rel="noopener noreferrer">{project.link.replace('https://', '').replace(/\/$/, '')}</a>
-                    </p>
+                {project.link || project.repo ? (
+                    <div className="case-links" style={{ '--d': 2 }}>
+                        {project.link ? (
+                            <a className="btn btn-ghost" href={project.link} target="_blank" rel="noopener noreferrer">
+                                Visit live site <span className="case-link-host">{project.link.replace('https://', '').replace(/\/$/, '')}</span>
+                            </a>
+                        ) : null}
+                        {project.repo ? (
+                            <a className="btn btn-ghost" href={project.repo} target="_blank" rel="noopener noreferrer" data-cursor="Source">
+                                <GitHubIcon /> View source on GitHub
+                            </a>
+                        ) : null}
+                    </div>
                 ) : null}
                 <section className="case-section" style={{ '--d': 3 }}>
                     <h2>Overview</h2><p className="overview">{project.overview}</p>
